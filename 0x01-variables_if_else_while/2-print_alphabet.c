@@ -1,16 +1,18 @@
 #include <stdio.h>
 
 /**
-   * main - print alphabet in lowercase
-   *
-   *Return: zero
-   */
+ * main - entry point
+ * Return: always 0 (success)
+ */
+
 int main(void)
 {
-	char ch = 'a';
+	char x;
 
-	for (ch = 'a'; ch <= 'z'; ch++)
-		putchar(ch);
-		putchar('\n');
+	for (x = 'a'; x <= 'z'; x++)
+	{
+		putchar(x);
+	}
+	putchar('\n');
 	return (0);
 }
