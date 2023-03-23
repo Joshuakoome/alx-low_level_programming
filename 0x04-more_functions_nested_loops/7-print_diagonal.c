@@ -1,20 +1,19 @@
 #include "main.h"
 
 /**
- *print_diagonal- prints line
- *@n: checked
- * Return: nothing
+ * print_diagonal - prints diagnol line.
+ *
+ * @n: number of times to print \.
  */
 void print_diagonal(int n)
 {
+	int i, j;
 
-	int  i, j;
-
-	for (i = 1; i <= n; ++i)
+	for (i = 1; i <= n; i++)
 	{
-		for (j = 1; j <= i; ++j)
+		for (j = 1; j <= i; j++)
 		{
-			if (j < i)
+			if (i >= 2 && j <= i - 1)
 			{
 				_putchar(' ');
 			}
@@ -23,6 +22,14 @@ void print_diagonal(int n)
 				_putchar('\\');
 			}
 		}
-		_putchar('\n');
+		if (i == n)
+		{
+			break;
+		}
+		else
+		{
+			_putchar('\n');
+		}
 	}
+	_putchar('\n');
 }
