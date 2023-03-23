@@ -1,24 +1,40 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- *print_square- prints a square
- *@size:checked
- *Return(0);
+ * main - fizzbuzz algorithm.
+ *
+ * Return: zero
  */
-void print_square(int size)
+int main(void)
 {
-	int i, j;
+	int i;
 
-	for (i = 0; i < size; i++)
+	for (i = 1; i <= 100; i++)
 	{
-		for (j = 0; j < size; j++)
+		if (i % 3 == 0 && i % 5 != 0)
 		{
-
-			_putchar('#');
-
-
+			printf("Fizz");
 		}
-		_putchar('\n');
+		else if (i % 5 == 0 && i % 3 != 0)
+		{
+			printf("Buzz");
+		}
+		else if (i % 15 == 0)
+		{
+			printf("FizzBuzz");
+		}
+		else
+		{
+			printf("%d", i);
+		}
+		if (i == 100)
+		{
+			break;
+		}
+		else
+			printf(" ");
 	}
+	printf("\n");
+	return (0);
 }
-
