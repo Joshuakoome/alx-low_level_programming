@@ -1,41 +1,32 @@
 #include "main.h"
-
 /**
- * *cap_string - capitalizes all words of a string.
- *
- * @str: hold character.
- * Return: string.
+ *cap_string- converts small letters to cap
+ *@s: checked
+ *Return: s
  */
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-	int i;
+	int i, j, separatorFound;
 
-	for (i = 0; str[i] != '\0'; i++)
+	separatorFound = 1;
+
+	for (i = 0; s[i]; ++i)
 	{
-		if (i == 0)
+		if (separatorFound && s[i] >= 'a' && s[i] <= 'z')
 		{
-			if ((str[i] >= 97 && str[i] <= 122))
-			{
-				str[i] = str[i] - 32;
-				continue;
-			}
+			s[i] = s[i] -  32;
 		}
-		else if (str[i] == ' ')
+		separatorFound = 0;
+		for (j = 0; j < 12; j++)
 		{
-			++i;
-			if (str[i] >= 97 && str[i] <= 122)
+			if (s[i] == '\t' || s[i] == '\n' || s[i] == ','
+			    || s[i] == '\"' || s[i] == '.' || s[i] == '!' ||
+			    s[i] == '{' || s[i] == '}' || s[i] == '(' ||
+			    s[i] == ')' || s[i] == ' ' || s[i] == '?')
 			{
-				str[i] = str[i] - 32;
-				continue;
-			}
-		}
-		else
-		{
-			if (str[i] >= 65 && str[i] <= 90)
-			{
-				str[i] = str[i] + 32;
+				separatorFound = 1;
 			}
 		}
 	}
-	return (str);
+	return (s);
 }
