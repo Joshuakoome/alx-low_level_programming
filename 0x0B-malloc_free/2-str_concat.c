@@ -1,40 +1,21 @@
-#include <main.h>
-#include <stdlib.h>
+#include <stdio.h>
+
 
 /**
- *str_concat- concate two  string
- *
- *@s1: The string to be concated up on
- *@s2: The string to be conacated to
- *Return: if concation fail NULL otherwise
- * a pointer the newly allocated memory containing concated string
- */
-
-char *str_concat(char *s1, char *s2)
+* main - prints all arguments it receives.
+* @argc: argument count
+* @argv: arguments
+*
+* Return: 0
+*/
+int main(int argc, char **argv)
 {
-	char *concat;
+int i;
 
-	int i, concat_i = 0, len = 0;
 
-	if (s1 == NULL)
-		s1 = "";
+for (i = 0; i < argc; i++)
+printf("%s\n", argv[i]);
 
-	if (s2 == NULL)
-		s2 = "";
 
-	for (i = 0; s1[i] || s2[i]; i++)
-
-		len++;
-
-	concat = malloc(sizeof(char) * len);
-
-	if (concat == NULL)
-		return (NULL);
-
-	for (i = 0; s1[i]; i++)
-		concat[concat_i++] = s1[i];
-	for (i = 0; s2[i]; i++)
-		concat[concat_i++] = s2[i];
-
-	return (concat);
+return (0);
 }
