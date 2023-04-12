@@ -1,40 +1,40 @@
 #include <main.h>
 #include <stdlib.h>
-/**
- * **alloc_grid - returns a pointer to a 2 dimensional array.
- * @width: width of the grid
- * @height: height of the grid
- * Return: NULL on failure of width/height is 0 or -ve
- * else Return pointer to a 2D array.
- */
-int **alloc_grid(int width, int height)
-{
-	int i, j, row, column;
-	int **p;
 
-	if (width <= 0 || height <= 0)
+/**
+ *str_concat- concate two  string
+ *
+ *@s1: The string to be concated up on
+ *@s2: The string to be conacated to
+ *Return: if concation fail NULL otherwise
+ * a pointer the newly allocated memory containing concated string
+ */
+
+char *str_concat(char *s1, char *s2)
+{
+	char *concat;
+
+	int i, concat_i = 0, len = 0;
+
+	if (s1 == NULL)
+		s1 = "";
+
+	if (s2 == NULL)
+		s2 = "";
+
+	for (i = 0; s1[i] || s2[i]; i++)
+
+		len++;
+
+	concat = malloc(sizeof(char) * len);
+
+	if (concat == NULL)
 		return (NULL);
-	p = (int **)malloc(height * sizeof(int *));
-	if (p == 0)
-	{
-		free(p);
-		return (NULL);
-	}
-	for (i = 0; i < height; i++)
-	{
-		p[i] = (int *)malloc(width * sizeof(int));
-		if (p[i] == 0)
-		{
-			for (j = 0; j <= i; j++)
-				free(p[j]);
-			free(p);
-			return (NULL);
-		}
-	}
-	for (row = 0; row < height; row++)
-	{
-		for (column = 0; column < width; column++)
-			p[row][column] = 0;
-	}
-	return (p);
+
+	for (i = 0; s1[i]; i++)
+		concat[concat_i++] = s1[i];
+	for (i = 0; s2[i]; i++)
+		concat[concat_i++] = s2[i];
+
+	return (concat);
 }
