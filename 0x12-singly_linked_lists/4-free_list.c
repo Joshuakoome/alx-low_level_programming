@@ -1,20 +1,17 @@
 #include "lists.h"
-
 /**
- * free_list - function that frees a linked list
- * @head: pointer to the start of the list
- *
- * Return: nothing
-*/
+ *free_list- free's mallov'd struct and str used to create lists
+ *@head: a ptr tp the list_t list
+ */
 void free_list(list_t *head)
 {
-	list_t *prev;
+	list_t *temp;
 
-	while (head != NULL)
+	while (head)
 	{
-		prev = head;
-		head = head->next;
-		free(prev->str);
-		free(prev);
+		temp = head->next;
+		free(head->str);
+		free(head);
+		head = temp;
 	}
 }
